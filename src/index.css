@@ -40,3 +40,18 @@ a:hover {
     background: #18aa61;
 }
 
+.img {
+    opacity: 0;
+    animation: img 1.5s ease-in-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes img {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: .7;
+    }
+    
+}

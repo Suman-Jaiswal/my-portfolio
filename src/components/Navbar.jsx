@@ -10,14 +10,18 @@ export default function Navbar() {
 
     useEffect(() => {
         const nav = document.querySelector('.nav-wrapper')
-        const navHeight = nav.offsetHeight
+        var lastScrollTop = 0;
 
         const fixNav = () => {
-            if (window.scrollY >= navHeight) {
-                nav.classList.add('narrow')
-            } else {
-                nav.classList.remove('narrow')
-            }
+            var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+            if (st > lastScrollTop) {
+                // downscroll code
+                nav.style.top = '-100px'
+            } else if (st < lastScrollTop) {
+                // upscroll code
+                nav.style.top = '0'
+            } // else was horizontal scroll
+            lastScrollTop = st <= 0 ? 0 : st;
         }
 
         window.addEventListener('scroll', fixNav)
@@ -31,15 +35,16 @@ export default function Navbar() {
             onMouseEnter={() => setHovered(to)}
             onMouseLeave={() => setHovered('')}
             className="nav-link p-1 mx-1"
+            style={{transition: 'all 0.5s ease-in-out'}}
         >
             <span
-                style={{ opacity: hovered === to ? 1 : 0, color: "#4bffa5" }}
+                style={{ opacity: hovered === to ? 1 : 0, color: "#4bffa5", transition: 'all 0.5s ease-in-out'}}
             >
                 <FontAwesomeIcon icon={faAngleLeft} />
             </span>
-            {' '} <span style={{ color: hovered === to ? '#4bffa5' : 'whitesmoke' }} >{children}</span>  {' '}
+            {' '} <span style={{ color: hovered === to ? '#4bffa5' : 'whitesmoke', transition: 'all 0.5s ease-in-out' }} >{children}</span>  {' '}
             <span
-                style={{ opacity: hovered === to ? 1 : 0, color: "#4bffa5" }}
+                style={{ opacity: hovered === to ? 1 : 0, color: "#4bffa5", transition: 'all 0.5s ease-in-out'}}
             >
                 /<FontAwesomeIcon icon={faAngleRight} />
             </span>
@@ -54,19 +59,26 @@ export default function Navbar() {
                 top: 0,
             }}>
                 <div className="navbar d-flex justify-content-between">
-                    <div className="logo">
-                        <div className='name fs-4'>Suman <span style={{ color: "#4bffa5" }} >Jaiswal</span> </div>
+                    <div className="logo"> 
+                    <Link to={'/'}>
+                        <img src="codefit.png" alt="CodeFit" style={{
+                            height: 80
+                        }} />
+                    </Link>
                     </div>
-                    <div className="nav-links d-flex p-1">
+                    <div className="nav-links d-flex py-2 px-4" style={{
+                        borderRadius: '50px',
+                        backgroundColor: 'rgba(16, 16, 16, 0.5)',
+                        boxShadow: '0px 1px 1px #222',
+                        fontSize: 14,
+                    }}>
                         {
                             [
-                                { to: '/', name: 'Home' },
-                                { to: '/resume', name: 'Resume' },
-                                { to: '/works', name: 'Works' },
-                                { to: '/blog', name: 'Blog' },
+                                { to: '/blogs', name: 'Blogs' },
+                                { to: '/projects', name: 'Projects' },
                                 { to: '/contact', name: 'Contact' },
                             ].map(({ to, name }) => (
-                                <Navlink to={to} key={to}>{name}</Navlink>
+                                <Navlink  to={to} key={to}>{name}</Navlink>
                             ))
                         }
                     </div>

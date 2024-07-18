@@ -1,13 +1,14 @@
 import { faEnvelope, faLocationDot, faPhone, faUserTie } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import Banner from '../components/Banner'
 
 export default function Contact() {
     return (
         <div className='contact'>
 
-            <Banner title='Contact' />
+            {/* <Banner title='Contact' /> */}
+
+            {/* <div style={{ height: 50 }} ></div> */}
 
             <div className="section1">
                 <div className="container">

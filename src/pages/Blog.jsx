@@ -1,12 +1,11 @@
 import React from 'react'
-import Banner from '../components/Banner'
 import BlogCard from '../components/BlogCard'
 
 export default function Blog() {
     return (
         <div className='blog'>
 
-            <Banner title='Blog' />
+            {/* <Banner title='Blog' /> */}
 
             <div className="section1">
                 <div className="container" >
@@ -16,7 +15,7 @@ export default function Blog() {
                         <div className="col d-flex align-items-center" style={{ height: 80, borderLeft: '1px solid #282828' }} >
 
                             <div className="h3 fw-bold m-0 ps-4" >
-                                Latest Posts
+                                Blogs
                             </div>
 
                         </div>
@@ -27,7 +26,7 @@ export default function Blog() {
                     </div>
 
                     <div className="row">
-                        <div className="col-8 " style={{ height: '63vh', overflowY: 'scroll', position: 'sticky', top: 0 }}>
+                        <div className="col-8 " style={{ height: '100vh', overflowY: 'scroll', position: 'sticky', top: 0 }}>
 
                             <BlogCard />
                             <BlogCard />

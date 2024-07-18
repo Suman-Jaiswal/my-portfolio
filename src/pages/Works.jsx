@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import Banner from '../components/Banner';
+import React, { useEffect, useState } from 'react';
 
 export default function Works() {
 
@@ -17,7 +16,8 @@ export default function Works() {
     return (
         <div className='works'>
 
-            <Banner title='Works' />
+            {/* <Banner title='Works' /> */}
+            <div style={{height:50}} ></div>
 
             <div className="section1">
                 <div className="container py-5">

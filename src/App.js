@@ -7,19 +7,21 @@ import Works from "./pages/Works";
 
 function App() {
 
-    const style = {
-        app: {
-            boxSizing: 'border-box',
-        }
-    }
-
     return (
-        <div style={style.app} className="App">
+        <div style={{
+             background: 'url(bg.avif) no-repeat',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                backgroundBlendMode: 'color-burn',
+                backgroundAttachment: 'fixed'
+        }} className="App" >
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/works" element={<Works />} />
-                <Route path="/blog" element={<Blog />} />
+                {/* <Route path="/resume" element={<Resume />} /> */}
+                <Route path="/projects" element={<Works />} />
+                <Route path="/blogs" element={<Blog />} />
                 <Route path="/contact" element={<Contact />} />
             </Routes>
         </div>
